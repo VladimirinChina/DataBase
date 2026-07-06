@@ -1,5 +1,12 @@
-from src.database.create_tables import create_tables
+from src.utils.data_loader import load_countries
 
-create_tables()
 
-print("Таблицы созданы")
+def main():
+
+    load_countries()
+
+    print("Страны загружены")
+
+
+if __name__ == "__main__":
+    main()
