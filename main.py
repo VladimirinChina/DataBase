@@ -1,11 +1,10 @@
-from src.utils.data_loader import load_countries
+from src.utils.data_loader import load_aeroplanes
 
 
 def main():
+    load_aeroplanes()
 
-    load_countries()
-
-    print("Страны загружены")
+    print("Самолеты успешно загружены!")
 
 
 if __name__ == "__main__":
