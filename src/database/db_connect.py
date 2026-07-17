@@ -1,12 +1,12 @@
 from os import getenv
 
-import psycopg2
+import psycopg2.extensions
 from dotenv import load_dotenv
 
 load_dotenv()
 
 
-def get_connection():
+def get_connection() -> psycopg2.extensions.connection:
     """Создает и возвращает подключение к PostgreSQL."""
 
     return psycopg2.connect(

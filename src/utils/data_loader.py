@@ -2,22 +2,10 @@ from src.api.nominatim_api import get_country_coordinates
 from src.api.opensky_api import get_aeroplanes
 from src.database.db_connect import get_connection
 
-
-COUNTRIES = [
-    "Russia",
-    "China",
-    "Germany",
-    "France",
-    "Italy",
-    "Spain",
-    "Canada",
-    "Japan",
-    "India",
-    "Brazil"
-]
+COUNTRIES = ["Russia", "China", "Germany", "France", "Italy", "Spain", "Canada", "Japan", "India", "Brazil"]
 
 
-def load_countries():
+def load_countries() -> None:
     """Загружает страны в базу данных."""
 
     conn = get_connection()
@@ -40,13 +28,7 @@ def load_countries():
                 VALUES (%s,%s,%s,%s,%s)
                 ON CONFLICT (name) DO NOTHING
                 """,
-                (
-                    data["name"],
-                    data["min_lat"],
-                    data["max_lat"],
-                    data["min_lon"],
-                    data["max_lon"]
-                )
+                (data["name"], data["min_lat"], data["max_lat"], data["min_lon"], data["max_lon"]),
             )
 
     conn.commit()
@@ -70,7 +52,7 @@ def parse_aeroplane(state: list) -> dict:
     }
 
 
-def load_aeroplanes():
+def load_aeroplanes() -> None:
     """
     Загружает самолеты в базу данных.
     """

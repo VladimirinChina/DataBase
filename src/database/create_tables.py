@@ -1,7 +1,7 @@
 from src.database.db_connect import get_connection
 
 
-def create_tables():
+def create_tables() -> None:
 
     conn = get_connection()
 

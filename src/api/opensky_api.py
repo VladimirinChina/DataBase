@@ -1,3 +1,5 @@
+from typing import Any, cast
+
 import requests
 
 
@@ -30,4 +32,4 @@ def get_aeroplanes(
 
     data = response.json()
 
-    return data.get("states", [])
+    return cast(list[Any], data.get("states", []))
